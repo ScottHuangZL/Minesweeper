@@ -20,3 +20,31 @@ $black: #202020
 .github
   color: $black !important // Override bulma
   border-color: $black
+
+.minefield
+  display: grid
+  grid-gap: 5px
+  width: 600px
+  height: 600px
+  font-size: 300%
+  font-weight: bold
+
+.minebox
+  width: 100%
+  heith: 100%
+  background-color: WhiteSmoke
+  align-items: center
+  justify-content: center
+  display: inline-flex
+
+.hot-minebox
+  cursor: pointer
+  background-color: LightGray
+  
+.detonated
+  background-color: Red
+
+@for $i from 1 through 8
+  .color-number-#{$i}
+    color: darken(#FF0000,  $i * 10%)
+
