@@ -21,10 +21,21 @@ Although is not a Fable requirement, on macOS and Linux you'll need [Mono](http:
 
 The project can be used by editors compatible with the new .fsproj format, like VS Code + [Ionide](http://ionide.io/), Emacs with [fsharp-mode](https://github.com/fsharp/emacs-fsharp-mode) or [Rider](https://www.jetbrains.com/rider/). **Visual Studio for Mac** is also compatible but in the current version the package auto-restore function conflicts with Paket so you need to disable it: `Preferences > Nuget > General`.
 
+I personally use visual code for this project. 
+
 ## Installing guide
 
-As for try create app from beginning to end, try below:
-In a terminal, run below commands
+You can direct leverage this project with below steps:
+
+In a terminal, run below commands:
+* Just clone the project or download this project from github as first step, and then use below commands.
+* `yarn install` or `npm install` to add node related packages
+* `cd src`
+* `dotnet restore` to restore related .net packages
+* `code ..` to open visual code editor in parent folder
+* `dotnet fable yarn-start` or `dotnet fable npm-start`
+
+Or else, if you want to create app from beginning to end, try below:
 * `mkdir Minesweeper`
 * `cd Minesweeper`
 * `dotnet new -u Fable.Template.Elmish.React` to uninstall template
@@ -40,21 +51,13 @@ In a terminal, run below commands
 * `dotnet fable yarn-start` or `dotnet fable npm-start` to start the app with HMR.
 * Then you can go to http://localhost:8080 to view the app result.
 
-or else, if you want to direct leverage this project:
-* Just clone the project or download this project from github as first step, and then use below commands.
-* `yarn install` or `npm install` to add node related packages
-* `cd src`
-* `dotnet restore` to restore related .net packages
-* `code ..` to open visual code editor in parent folder
-* `dotnet fable yarn-start` or `dotnet fable npm-start`
-
 > In some shells you many need quotations: `dotnet new -i "Fable.Template.Elmish.React::*"`. If you use dotnet SDK 2, you should only need to type `dotnet new -i Fable.Template.Elmish.React`.
 
 If you are using VS Code + [Ionide](http://ionide.io/), you can also use the key combination: Ctrl+Shift+B (Cmd+Shift+B on macOS) instead of typing the `dotnet fable yarn-start` command. This also has the advantage that Fable-specific errors will be highlighted in the editor along with other F# errors.
 
 Any modification you do to the F# code will be reflected in the web page after saving. When you want to output the JS code to disk, run `dotnet fable yarn-build` (or `npm-build`) and you'll get a minified JS bundle in the `public` folder.
 
-## Project structure
+## --------------------Below FYI only-------------------
 
 ### Paket
 
@@ -80,6 +83,3 @@ Any modification you do to the F# code will be reflected in the web page after s
 
 - **webpack.config.js**: is the configuration file for Webpack. It allows you to set many things: like the path of the bundle, the port for the development server or [Babel](https://babeljs.io/) options. See [Webpack website](https://webpack.js.org) for more info.
 
-### F# source files
-
-The template only contains two F# source files: the project (.fsproj) and a source file (.fs) in `src` folder.
