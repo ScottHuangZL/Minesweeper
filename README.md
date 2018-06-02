@@ -5,6 +5,10 @@ I personally do feel this F# based solution is the most comfortable way to mysel
 
 Hope you enjoy it too, thanks.
 
+## Sample Pictures
+![Sample Picture 1](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture1.png)
+![Sample Picture 2](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture2.png)
+
 ## Requirements
 
 * [dotnet SDK](https://www.microsoft.com/net/download/core) 2.0.0 or higher
@@ -19,6 +23,7 @@ The project can be used by editors compatible with the new .fsproj format, like 
 
 ## Installing guide
 
+As for try create app from beginning to end, try below:
 In a terminal, run below commands
 * `mkdir Minesweeper`
 * `cd Minesweeper`
@@ -34,6 +39,14 @@ In a terminal, run below commands
 * `code ..` to open visual code editor in parent folder
 * `dotnet fable yarn-start` or `dotnet fable npm-start` to start the app with HMR.
 * Then you can go to http://localhost:8080 to view the app result.
+
+or else, if you want to direct leverage this project:
+* Just clone the project or download this project from github as first step, and then use below commands.
+* `yarn install` or `npm install` to add node related packages
+* `cd src`
+* `dotnet restore` to restore related .net packages
+* `code ..` to open visual code editor in parent folder
+* `dotnet fable yarn-start` or `dotnet fable npm-start`
 
 > In some shells you many need quotations: `dotnet new -i "Fable.Template.Elmish.React::*"`. If you use dotnet SDK 2, you should only need to type `dotnet new -i Fable.Template.Elmish.React`.
 
