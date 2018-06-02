@@ -1,7 +1,9 @@
-# Fable.Elmish.React Template
+# Fable.Elmish.React Minesweeper App
+This is a web app developed with F# + Fable + Elmish React template. I follow up one youtube video to manual create this app step by step, it help me grasp F# related knowledge a lot after complete this app.
 
-This template can be used to generate a simple web app with [Fable](http://fable.io/) and [Elmish](https://fable-elmish.github.io/).
-You can find more templates by searching `Fable.Template` packages in [Nuget](https://www.nuget.org).
+I personally do feel this F# based solution is the most comfortable way to myself to create JS related web till now (Jun 2, 2018).
+
+Hope you enjoy it too, thanks.
 
 ## Requirements
 
@@ -15,27 +17,25 @@ Although is not a Fable requirement, on macOS and Linux you'll need [Mono](http:
 
 The project can be used by editors compatible with the new .fsproj format, like VS Code + [Ionide](http://ionide.io/), Emacs with [fsharp-mode](https://github.com/fsharp/emacs-fsharp-mode) or [Rider](https://www.jetbrains.com/rider/). **Visual Studio for Mac** is also compatible but in the current version the package auto-restore function conflicts with Paket so you need to disable it: `Preferences > Nuget > General`.
 
-## Installing the template
+## Installing guide
 
-In a terminal, run `dotnet new -i Fable.Template.Elmish.React::*` to install or update the template to latest version.
+In a terminal, run below commands
+* `mkdir Minesweeper`
+* `cd Minesweeper`
+* `dotnet new -u Fable.Template.Elmish.React` to uninstall template
+* `dotnet new -i Fable.Template.Elmish.React` to install latest template
+* `dotnet new fable-elmish-react -lang F#` to create project in current folder
+* `git init`
+* `git add -A`
+* `git commit -am "Initial template"` to setup git related matter
+* `yarn install` or `npm install` to add node related packages
+* `cd src`
+* `dotnet restore` to restore related .net packages
+* `code ..` to open visual code editor in parent folder
+* `dotnet fable yarn-start` or `dotnet fable npm-start` to start the app with HMR.
+* Then you can go to http://localhost:8080 to view the app result.
 
 > In some shells you many need quotations: `dotnet new -i "Fable.Template.Elmish.React::*"`. If you use dotnet SDK 2, you should only need to type `dotnet new -i Fable.Template.Elmish.React`.
-
-## Creating a new project with the template
-
-In a terminal, run `dotnet fable-elmish-react` to create a project in the current directory. Type `dotnet new fable-elmish-react -n awesome` instead to create a subfolder named `awesome` and put the new project there.
-
-> The project will have the name of the directory. You may get some issues if the directory name contains some special characters like hyphens
-
-## Building and running the app
-
-* Install JS dependencies: `npm install`
-* **Move to `src` folder**: `cd src`
-* Install F# dependencies: `dotnet restore`
-* Start Fable daemon and [Webpack](https://webpack.js.org/) dev server: `dotnet fable npm-start`
-* In your browser, open: http://localhost:8080/
-
-> `dotnet fable yarn-start` (or `npm-start`) is used to start the Fable daemon and run a script in package.json concurrently. It's a shortcut of `yarn-run [SCRIP_NAME]`, e.g. `dotnet fable yarn-run start`.
 
 If you are using VS Code + [Ionide](http://ionide.io/), you can also use the key combination: Ctrl+Shift+B (Cmd+Shift+B on macOS) instead of typing the `dotnet fable yarn-start` command. This also has the advantage that Fable-specific errors will be highlighted in the editor along with other F# errors.
 
