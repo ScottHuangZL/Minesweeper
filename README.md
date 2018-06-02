@@ -6,8 +6,9 @@ I personally do feel this F# based solution is the most comfortable way to mysel
 Hope you enjoy it too, thanks.
 
 ## Sample Pictures
-![Sample Picture 1](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture1.png)
-![Sample Picture 2](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture2.png)
+![Sample Picture - Running](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture2.png)
+![Sample Picture - Lost](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture1.png)
+![Sample Picture - Won](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture3.png)
 
 ## Requirements
 
