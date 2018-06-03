@@ -54,6 +54,17 @@ Or else, if you want to create app from beginning to end, try below:
 * `dotnet fable yarn-start` or `dotnet fable npm-start` to start the app with HMR.
 * Then you can go to http://localhost:8080 to view the app result.
 
+
+I do not use `Fulma` for this project at very beginning. But I decide add this package at last.
+The steps as below FYI. I have done it for you:)
+
+* in the project root `paket.dependencies` add in one line `nuget Fulma`
+* in the src folder `paket.references` add in one line `Fumla`
+* in the project root run command `.\paket\paket.exe update`
+* in the src folder run command `dotnet restore`
+* And then you should be able `open Fulma` to use Fulma in your view file now.
+
+
 > In some shells you many need quotations: `dotnet new -i "Fable.Template.Elmish.React::*"`. If you use dotnet SDK 2, you should only need to type `dotnet new -i Fable.Template.Elmish.React`.
 
 If you are using VS Code + [Ionide](http://ionide.io/), you can also use the key combination: Ctrl+Shift+B (Cmd+Shift+B on macOS) instead of typing the `dotnet fable yarn-start` command. This also has the advantage that Fable-specific errors will be highlighted in the editor along with other F# errors.

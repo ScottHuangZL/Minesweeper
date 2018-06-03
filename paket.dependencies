@@ -1,6 +1,6 @@
-source https://nuget.org/api/v2
-
 storage:none
+
+source https://nuget.org/api/v2
 
 nuget Fable.Elmish.HMR
 nuget FSharp.Core
@@ -8,5 +8,6 @@ nuget Fable.Core
 nuget Fable.Elmish.React
 nuget Fable.Elmish.Browser
 nuget Fable.Elmish.Debugger
+nuget Fulma
 
 clitool dotnet-fable

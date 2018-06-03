@@ -866,9 +866,9 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "http://registry.npm.taobao.org/builtin-status-codes/download/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-bulma@^0.5.2:
-  version "0.5.3"
-  resolved "http://registry.npm.taobao.org/bulma/download/bulma-0.5.3.tgz#be93afb6246192505c30df3f9c1c29a97d319a13"
+bulma@^0.7.1:
+  version "0.7.1"
+  resolved "http://registry.npm.taobao.org/bulma/download/bulma-0.7.1.tgz#73c2e3b2930c90cc272029cbd19918b493fca486"
 
 bytes@3.0.0:
   version "3.0.0"
