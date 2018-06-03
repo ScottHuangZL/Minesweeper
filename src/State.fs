@@ -5,18 +5,26 @@ open Types
 open GameLogic
 open Fable
 
-let init _ =
+let init minesCount size =
   {
-    Model.map = generateMineField 10 8
+    minesCount = minesCount
+    size = size
+    Model.map = generateMineField minesCount size
     revealed = Map.empty<BoxIndex, RevealedState>
     gameState = Running
   }, Cmd.none
 
 
+let firstInit _ =
+  init 10 8
+
 let update msg model = 
   let newModel =
     match msg with 
-    | ResetGame -> fst <| init ()
+    | ResetGame -> fst <| init model.minesCount model.size
+    | SetMinesCount minesCount -> {model with minesCount = minesCount}
+    | SetSize size -> 
+        {model with size = size}
     | Reveal boxIndex ->
         match model.map.[boxIndex], model.revealed |> Map.tryFind boxIndex with
         | Mine, _ -> {model with gameState = Lost boxIndex}

@@ -2,25 +2,25 @@ module Minesweeper.App
 
 open Elmish
 open Elmish.Browser.Navigation
-open Fable.Core
+// open Fable.Core
 open Fable.Core.JsInterop
-open Fable.Import
-open Fable.Import.Browser
-open Types
+// open Fable.Import
+// open Fable.Import.Browser
+// open Types
 open State
 open View
 
 importAll "../sass/main.sass"
 
-open Fable.Helpers.React
-open Fable.Helpers.React.Props
+// open Fable.Helpers.React
+// open Fable.Helpers.React.Props
 
 open Elmish.React
 open Elmish.Debug
 open Elmish.HMR
 
 // App
-Program.mkProgram init update view
+Program.mkProgram firstInit update view
 #if DEBUG
 |> Program.withDebugger
 |> Program.withHMR

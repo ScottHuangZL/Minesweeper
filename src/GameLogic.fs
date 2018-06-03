@@ -5,6 +5,23 @@ open Types
 open System
 open Fable
 
+
+let validateMinesCount size minesCount = 
+  ///standardize size firstly
+  let size = if size <= 4 then 4 else if size > 30 then 30 else size
+  if minesCount <= 0 then 1 else if minesCount >= size * size then size else minesCount 
+
+let validateSize minesCount size = 
+    ///standardize size firstly
+    let size = if size <= 4 then 4 else if size > 30 then 30 else size
+    let minesCount = validateMinesCount size minesCount 
+    let size = 
+      if size * size < minesCount 
+        then (minesCount |> float |> Math.Sqrt |> int |> (+) 1 ) 
+        else size
+    ///Size max is 30    
+    if size > 30 then 30 else size 
+
 let private random = 
   let rand = Random()
   rand.Next

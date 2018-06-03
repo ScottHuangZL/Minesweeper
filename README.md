@@ -1,13 +1,15 @@
 # Fable.Elmish.React Minesweeper App
 This is a web app developed with F# + Fable + Elmish React template. I follow up one youtube video to manual create this app step by step, it help me grasp F# related knowledge a lot after complete this app.
 
+And I add in `additional functions to allow end user can set the minefields size and mines count by themselves`. Program will have validation rule to fine tune teh size and mines count at backend.
+
 I personally do feel this F# based solution is the most comfortable way to myself to create JS related web till now (Jun 2, 2018).
 
 Hope you enjoy it too, thanks.
 
 ## Sample Pictures
-![Sample Picture - Running](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture2.png)
-![Sample Picture - Lost](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture1.png)
+![Sample Picture - Running](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture1.png)
+![Sample Picture - Lost](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture2.png)
 ![Sample Picture - Won](https://github.com/ScottHuangZL/Minesweeper/blob/master/src/sample-picture3.png)
 
 ## Requirements

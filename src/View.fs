@@ -2,12 +2,22 @@ module Minesweeper.View
 
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
+open Fable.Core.JsInterop
 open Types
 open GameLogic
 
 let title content = h1 [ClassName "title"] [str content]
 let subtitle content = h2 [ClassName "subtitle"] [str content]
 let showIcon label = span [ClassName "icon"] [i[ClassName <| sprintf "fa fa-%s" label][]]
+
+let mineBoxFontSize model =
+    let fontSize = (240 * 8 / model.size) |> int
+    if fontSize < 30 
+        then sprintf "%i%%" 30
+        else if fontSize > 240
+            then sprintf "%i%%" 240
+            else sprintf "%i%%" fontSize
+
 let showGrid titleText presentBox model dispatch =
     let cellsTemplate = sprintf "repeat(%i, 1fr)" <| getSize model.map
     div 
@@ -24,10 +34,61 @@ let showGrid titleText presentBox model dispatch =
                     Style [
                         GridTemplateColumns cellsTemplate
                         GridTemplateRows cellsTemplate
+                        // FontSize (sprintf "%i%%" model.boxFontSize)
+                        FontSize (mineBoxFontSize model)
                     ]
                 ]
 
-            br []
+            br []    
+            div [][
+                table[][
+                  tbody[][
+                    tr []
+                        [
+                        td [ClassName "is-one-fifth"]
+                            [
+                            label [] [str "Mines Count (Min is 1, Max cannot > size * size):" ]    
+                            input
+                                [ ClassName "input"
+                                //   Type "text"
+                                  Placeholder "Mines Count"
+                                  DefaultValue (model.minesCount |> string)
+                                //   AutoFocus true
+                                  OnChange (fun ev -> 
+                                    !!ev.target?value 
+                                        |> validateMinesCount model.size|> SetMinesCount |> dispatch 
+                                    // ev.target?value <- validateMinesCount model.size model.minesCount
+                                  ) ]
+                            ]
+                        td [ClassName "is-one-fifth"]
+                            [
+                            label [] [str "Grid Size (Min is 4, Max is 30):"]    
+                            input
+                                [ ClassName "input"
+                                //   Type "text"
+                                  Placeholder "Grid Size"
+                                  DefaultValue (model.size |> string)
+                                //   AutoFocus true
+                                  OnChange (fun ev -> 
+                                    !!ev.target?value 
+                                        |> validateSize model.minesCount 
+                                        |> SetSize |> dispatch 
+                                    // ev.target?value <- validateSize model.minesCount model.size    
+                                  ) ]
+                            ]
+                        td [ClassName "is-one-fifth"]
+                            [
+                            label [] [str "Calculated Font Size:"]
+                            label [] [str (mineBoxFontSize model)]    
+                            br [] 
+                            label [] [str (sprintf "Calculated MinesCount = %i" (validateMinesCount model.size model.minesCount)) ]                     
+                            br [] 
+                            label [] [str (sprintf "Calculated Size = %i" (validateSize model.minesCount model.size)) ]   
+                            ]
+                        ]
+                    ]
+                ]
+            ]    
             button [OnClick (fun _ -> dispatch ResetGame)] [str "Reset the game"]
         ]
 
